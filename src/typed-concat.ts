@@ -8,11 +8,13 @@ export type Concat<
   : A extends string // TODO: investigate if this check is necessary
     ? `${BASE}${A}`
     : A extends string[]
-      ? ArrayHead<A> extends string
-        ? A['length'] extends 1
-          ? Concat<BASE, ArrayHead<A>>
-          : Concat<`${BASE}${ArrayHead<A>}`, ArrayTail<A>>
-        : never
+      ? string[] extends A
+        ? string
+        : ArrayHead<A> extends string
+          ? A['length'] extends 1
+            ? Concat<BASE, ArrayHead<A>>
+            : Concat<`${BASE}${ArrayHead<A>}`, ArrayTail<A>>
+          : never
       : never;
 
 export type TypedConcat = {

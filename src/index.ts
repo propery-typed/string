@@ -1,4 +1,3 @@
-export * from './string-utils';
 export * from './typed-char-at';
 export * from './typed-concat';
 export * from './typed-repeat';
